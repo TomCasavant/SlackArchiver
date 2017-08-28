@@ -1,0 +1,11 @@
+version: '3'
+services:
+	mongodb:
+		image: mongo
+		links: slackarchiver:slackarchiver	
+
+	slackarchiver:
+		build: ./slackarchiver
+		links:mongo:mongodb
+		
+
