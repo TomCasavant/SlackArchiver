@@ -2,7 +2,7 @@ from ConfigParser import SafeConfigParser
 import time
 from pymongo import MongoClient
 from slackclient import SlackClient
-
+import os
 
 def log_previous_slack_data(slackclient, mongoclient):
     """Gets all previous messages and puts them into a mongo database"""
@@ -49,12 +49,12 @@ def insert_database(messages, client):
 
 if __name__ == "__main__":
     parser = SafeConfigParser()
-    parser.read("config.ini")  # Loads Config File to retrieve Slack API Token
+    parser.read(os.environ['CONIFG'])  # Loads Config File to retrieve Slack API Token
     SLACK_API_TOKEN = parser.get("slack", "API_TOKEN")
 
     mongo = MongoClient()
     slack = SlackClient(SLACK_API_TOKEN)
 
-    log_previous_slack_data(slack, mongo)
+    #log_previous_slack_data(slack, mongo)
     #print_database(mongo)
     start_listening(slack, mongo)
