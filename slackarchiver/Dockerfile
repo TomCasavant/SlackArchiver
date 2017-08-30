@@ -1,7 +1,7 @@
 FROM python:2
 
 
-ADD main.py slackarchiver
+ADD main.py /
 
 ENV CONFIG config.ini
 ADD config.ini $CONFIG
@@ -12,6 +12,6 @@ RUN pip install \
 	slackclient
 
 
-CMD [ "python", "\slackarchiver\main.py"]
-#sleep 18000
+CMD [ "python", "./main.py"]
+#CMD ["sleep", "1800"]
 

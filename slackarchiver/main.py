@@ -49,10 +49,10 @@ def insert_database(messages, client):
 
 if __name__ == "__main__":
     parser = SafeConfigParser()
-    parser.read(os.environ['CONIFG'])  # Loads Config File to retrieve Slack API Token
+    parser.read(os.environ['CONFIG'])  # Loads Config File to retrieve Slack API Token
     SLACK_API_TOKEN = parser.get("slack", "API_TOKEN")
 
-    mongo = MongoClient()
+    mongo = MongoClient("mongodb")
     slack = SlackClient(SLACK_API_TOKEN)
 
     #log_previous_slack_data(slack, mongo)

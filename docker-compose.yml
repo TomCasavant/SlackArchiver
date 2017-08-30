@@ -8,4 +8,3 @@ services:
   links:
    - mongodb:mongo
 
-
