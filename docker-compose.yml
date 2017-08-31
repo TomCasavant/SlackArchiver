@@ -2,9 +2,9 @@ version: "2"
 services:
  mongodb:
   image: mongo
- 
+  
  slackarchiver:
   build: ./slackarchiver
   links:
-   - mongodb:mongo
+   - mongodb:mongodb
 
