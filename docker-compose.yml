@@ -1,10 +1,12 @@
-version: "2"
+version: "3.2"
 services:
  mongodb:
-  image: mongo
-  
+  image: mongo:3.4
+  volumes:
+   - slack-volume:/data/db
+
  slackarchiver:
   build: ./slackarchiver
-  links:
-   - mongodb:mongodb
 
+volumes:
+ slack-volume:

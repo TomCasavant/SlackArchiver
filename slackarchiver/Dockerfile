@@ -11,7 +11,8 @@ RUN pip install \
 	pymongo \
 	slackclient
 
+VOLUME /data/db
 
 CMD [ "python", "./main.py"]
-#CMD ["sleep", "1800"]
+#CMD ["sleep", "180"]
 
